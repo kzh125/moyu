@@ -14,7 +14,7 @@ namespace ProcessListTool
         static void Main(string[] args)
         {
             var encoding = Encoding.UTF8;
-            string configPath = Path.Combine(Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location), "processes.txt");
+            string configPath = Path.Combine(Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location), "current running processes.txt");
             File.WriteAllText(configPath, "", encoding);
             Process[] processList = Process.GetProcesses();
             foreach (Process p in processList)
