@@ -46,16 +46,16 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="MoyuForn.cs">
+    <Compile Include="MoyuForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="MoyuForn.Designer.cs">
-      <DependentUpon>MoyuForn.cs</DependentUpon>
+    <Compile Include="MoyuForm.Designer.cs">
+      <DependentUpon>MoyuForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="MoyuForn.resx">
-      <DependentUpon>MoyuForn.cs</DependentUpon>
+    <EmbeddedResource Include="MoyuForm.resx">
+      <DependentUpon>MoyuForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

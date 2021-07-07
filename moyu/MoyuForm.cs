@@ -14,7 +14,7 @@ using System.Windows.Forms;
 
 namespace moyu
 {
-    public partial class MoyuForn : Form
+    public partial class MoyuForm : Form
     {
         private const int ALT = 0xA4;
         private const int EXTENDEDKEY = 0x1;
@@ -63,7 +63,7 @@ namespace moyu
             SetForegroundWindow(mainWindowHandle);
         }
 
-        public MoyuForn()
+        public MoyuForm()
         {
             InitializeComponent();
         }
@@ -179,6 +179,11 @@ namespace moyu
                 MessageBox.Show(ex.Message);
             }
             
+        }
+
+        private void exitToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
         }
     }
 }
