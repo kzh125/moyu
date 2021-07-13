@@ -41,7 +41,7 @@ namespace moyu
             // 
             this.notifyIcon1.ContextMenuStrip = this.contextMenuStripQuit;
             this.notifyIcon1.Icon = ((System.Drawing.Icon)(resources.GetObject("notifyIcon1.Icon")));
-            this.notifyIcon1.Text = "notifyIcon1";
+            this.notifyIcon1.Text = "moyu";
             this.notifyIcon1.Visible = true;
             // 
             // contextMenuStripQuit
@@ -50,28 +50,28 @@ namespace moyu
             this.contextMenuStripQuit.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.exitToolStripMenuItem});
             this.contextMenuStripQuit.Name = "contextMenuStripQuit";
-            this.contextMenuStripQuit.Size = new System.Drawing.Size(301, 86);
+            this.contextMenuStripQuit.Size = new System.Drawing.Size(97, 26);
             // 
             // exitToolStripMenuItem
             // 
             this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            this.exitToolStripMenuItem.Size = new System.Drawing.Size(300, 38);
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(96, 22);
             this.exitToolStripMenuItem.Text = "Exit";
             this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
             // 
             // MoyuForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 24F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
             this.AutoScrollMinSize = new System.Drawing.Size(1, 1);
             this.BackColor = System.Drawing.SystemColors.Highlight;
-            this.ClientSize = new System.Drawing.Size(705, 1714);
+            this.ClientSize = new System.Drawing.Size(450, 245);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
-            this.MinimumSize = new System.Drawing.Size(1, 1);
             this.Name = "MoyuForm";
             this.Opacity = 0.2D;
             this.ShowIcon = false;
@@ -81,7 +81,6 @@ namespace moyu
             this.TopMost = true;
             this.Load += new System.EventHandler(this.Form1_Load);
             this.MouseEnter += new System.EventHandler(this.Form1_MouseEnter);
-            this.MouseLeave += new System.EventHandler(this.Form1_MouseLeave);
             this.contextMenuStripQuit.ResumeLayout(false);
             this.ResumeLayout(false);
 

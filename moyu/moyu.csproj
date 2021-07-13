@@ -46,6 +46,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="InactiveMonitor.cs" />
+    <Compile Include="KeyboardHook.cs" />
+    <Compile Include="MouseHook.cs" />
     <Compile Include="MoyuForm.cs">
       <SubType>Form</SubType>
     </Compile>

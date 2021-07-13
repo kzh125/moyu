@@ -41,6 +41,9 @@ namespace moyu
         [DllImport("user32.dll")]
         private static extern IntPtr GetForegroundWindow();
 
+        private const int _inactiveSeconds = 60;
+        private InactiveMonitor inactiveMonitor;
+
         public static void ActivateWindow(IntPtr mainWindowHandle)
         {
             //check if already has focus
@@ -66,10 +69,25 @@ namespace moyu
         public MoyuForm()
         {
             InitializeComponent();
+            inactiveMonitor = new InactiveMonitor(_inactiveSeconds);
+            inactiveMonitor.OnInactive += new EventHandler(this.OnInactive);
+            inactiveMonitor.Start();
         }
 
+        void OnInactive(object sender, EventArgs e)
+        {
+            try
+            {
+                ActivateMainWindow();
+            }
+            catch (Exception)
+            {
+            }
+        }
+
+
         private IntPtr ProcessMainWindowHandle { get; set; }
-        private List<string> ProcessTitles {get; set; }
+        private List<string> ProcessTitles { get; set; }
 
         private void GetProcessHandle()
         {
@@ -89,7 +107,6 @@ namespace moyu
                     }
                 }
             }
-            
 
             throw new Exception($"{ProcessTitles} not found");
         }
@@ -136,49 +153,33 @@ namespace moyu
             return new System.Drawing.Size(w, h);
         }
 
-        private void test()
-        {
-            Process[] processList = Process.GetProcesses();
-            foreach (Process p in processList)
-            {
-                if (string.IsNullOrEmpty(p.MainWindowTitle))
-                {
-                    continue;
-                }
-                Console.WriteLine(p.MainWindowTitle);
-            }
-        }
-
         private void Form1_Load(object sender, EventArgs e)
         {
-            test();
             GetProcessTitle();
             GetProcessHandle();
             this.ClientSize = CalculateSize();
             this.Location = GetStartLocation();
         }
 
-        private void Form1_MouseLeave(object sender, EventArgs e)
+        private void ActivateMainWindow()
         {
-
+            if (!IsWindow(ProcessMainWindowHandle))
+            {
+                GetProcessHandle();
+            }
+            ActivateWindow(ProcessMainWindowHandle);
         }
 
         private void Form1_MouseEnter(object sender, EventArgs e)
         {
             try
             {
-                var x = this.Location;
-                if (!IsWindow(ProcessMainWindowHandle))
-                {
-                    GetProcessHandle();
-                }
-                ActivateWindow(ProcessMainWindowHandle);
+                ActivateMainWindow();
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
             }
-            
         }
 
         private void exitToolStripMenuItem_Click(object sender, EventArgs e)
